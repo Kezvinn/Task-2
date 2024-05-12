@@ -1,0 +1,15 @@
+ARM have 2 interrupt source
+    - Interrupt from GPU peripherals
+    - Interrupt from local ARM control peripherals
+
+3 types of interrupt
+    - Interrupt from ARM specific peripherals
+    - Interrupt from GPU peripherals
+    - Special event interrupt
+
+Specific interrupts
+    - One timer
+    - One mailbox
+    - Two Doorbells
+    - Two GPU halted interrupt
+    - Two address/access error interrupt
