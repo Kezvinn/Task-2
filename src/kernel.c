@@ -9,5 +9,6 @@ void main() {
     uart0_puts("\n\nHello World!\n");
     framebf_init();
     while (1) {
+        uart0_puts("loop!\n");
     }
 }
