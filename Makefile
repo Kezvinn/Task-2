@@ -1,6 +1,6 @@
 CFILES := $(wildcard ./src/*.c)
 OFILES = $(CFILES: ./src/%.c = ./obj/%.o)
-OBJFILES = ./obj/boot.o ./obj/kernel.o ./obj/uart0.o ./obj/uart1.o ./obj/mbox.o ./obj/framebf.o
+OBJFILES = ./obj/boot.o ./obj/kernel.o ./obj/uart0.o ./obj/uart1.o ./obj/mbox.o ./obj/framebf.o ./obj/irq.o
 GCCFLAGS := -Wall -O2 -ffreestanding -nostdlib -nostdinc
 
 all: clean $(OBJFILES) ./obj/kernel8.img 
@@ -14,6 +14,10 @@ all: clean $(OBJFILES) ./obj/kernel8.img
 # uart0
 ./obj/uart0.o: ./src/uart/uart0.c
 	aarch64-none-elf-gcc $(GCCFLAGS) -c ./src/uart/uart0.c -o ./obj/uart0.o 
+
+# IRQ
+./obj/irq.o: ./src/irq/irq.c
+	aarch64-none-elf-gcc $(GCCFLAGS) -c ./src/irq/irq.c -o ./obj/irq.o
 
 # uart1
 ./obj/uart1.o: ./src/uart/uart1.c
